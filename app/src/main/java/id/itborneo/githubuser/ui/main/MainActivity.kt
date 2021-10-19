@@ -19,8 +19,8 @@ import kotlinx.coroutines.launch
 class MainActivity : AppCompatActivity() {
 
     private lateinit var rvHome: RecyclerView
-
     private lateinit var adapter: MainAdapter
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -46,11 +46,10 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun initRecyclerView() {
-        rvHome.layoutManager = LinearLayoutManager(this)
+        rvHome.layoutManager = GridLayoutManager(this, 2)
         adapter = MainAdapter {
             actionToDetail(it)
         }
-        rvHome.layoutManager = GridLayoutManager(this, 2)
         rvHome.adapter = adapter
 
 

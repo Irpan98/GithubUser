@@ -12,6 +12,7 @@ import id.itborneo.githubuser.data.networks.ApiConfig
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 
 
 class DetailActivity : AppCompatActivity() {
@@ -26,6 +27,7 @@ class DetailActivity : AppCompatActivity() {
         setContentView(R.layout.activity_detail)
 
         retrieveData()
+
         if (getIntentData != null) {
             getDetailUser()
         }
@@ -41,9 +43,11 @@ class DetailActivity : AppCompatActivity() {
             CoroutineScope(Dispatchers.Main).launch {
                 updateUI(detailUser)
             }
-        }
-    }
 
+        }
+
+
+    }
 
     private fun updateUI(userDetail: UserDetailModel?) {
 
